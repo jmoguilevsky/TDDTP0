@@ -10,4 +10,9 @@ public class MainTests {
     public void dummy() {
         assertEquals(0, 0);
     }
+
+    @Test
+    public void anotherDummy() {
+        assertEquals(1, 1);
+    }
 }
