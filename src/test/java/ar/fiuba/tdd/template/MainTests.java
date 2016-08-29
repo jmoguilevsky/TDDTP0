@@ -15,4 +15,10 @@ public class MainTests {
     public void anotherDummy() {
         assertEquals(1, 1);
     }
+
+    @Test
+    public void createQueue() {
+        Queue<Integer> q = new Queue<Integer>();
+        assertEquals(q.isEmpty(), true);
+    }
 }
