@@ -25,13 +25,13 @@ public class Queue<T> {
 
     public void add(T data) {
         Node<T> newNode = new Node(data);
-        elementsCount++;
         if (isEmpty()) {
             firstNode = newNode;
             lastNode = firstNode;
-            return;
+        } else {
+            lastNode.setNext(newNode);
         }
-        lastNode.setNext(newNode);
+        elementsCount++;
     }
 
     public T top() throws AssertionError {
@@ -51,6 +51,7 @@ public class Queue<T> {
             currentNode = currentNode.getNext();
         }
         currentNode.setNext(null);
+        elementsCount--;
     }
 }
 
