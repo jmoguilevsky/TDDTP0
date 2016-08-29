@@ -21,119 +21,119 @@ public class MainTests {
 
     @Test
     public void createQueueIsEmpty() {
-        Queue<Integer> q = new Queue<Integer>();
-        assertEquals(q.isEmpty(), true);
+        Queue<Integer> testQ = new Queue<Integer>();
+        assertEquals(testQ.isEmpty(), true);
     }
 
     @Test
     public void addElementToQueueIsNotEmpty() {
-        Queue<Integer> q = new Queue<Integer>();
-        q.add(10);
-        assertEquals(q.isEmpty(), false);
+        Queue<Integer> testQ = new Queue<Integer>();
+        testQ.add(10);
+        assertEquals(testQ.isEmpty(), false);
     }
 
     @Test
     public void addElementToQueueSizeIsOne() {
-        Queue<Integer> q = new Queue<Integer>();
-        q.add(10);
-        assertEquals(q.size(), 1);
+        Queue<Integer> testQ = new Queue<Integer>();
+        testQ.add(10);
+        assertEquals(testQ.size(), 1);
     }
 
     @Test
     public void addElementToQueueTopIsElement() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         Integer element = 10;
-        q.add(element);
-        assertEquals(q.top(), element);
+        testQ.add(element);
+        assertEquals(testQ.top(), element);
     }
 
     @Test
     public void addElementToQueueRemoveThenIsEmpty() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         Integer element = 10;
-        q.add(element);
-        q.remove();
-        assertEquals(q.isEmpty(), true);
+        testQ.add(element);
+        testQ.remove();
+        assertEquals(testQ.isEmpty(), true);
     }
 
     @Test
     public void add10ElementsToQueueTopIsFirst() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         for (int i = 0; i < 10; i++) {
-            q.add(i);
+            testQ.add(i);
         }
         Integer zero = 0;
-        assertEquals(q.top(), zero);
+        assertEquals(testQ.top(), zero);
     }
 
     @Test
     public void add10ElementsToQueueRemoveSizeIs9() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         for (int i = 0; i < 10; i++) {
-            q.add(i);
+            testQ.add(i);
         }
-        q.remove();
-        assertEquals(q.size(), 9);
+        testQ.remove();
+        assertEquals(testQ.size(), 9);
     }
 
     @Test
     public void add10ElementsToQueueRemove10IsEmpty() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         for (int i = 0; i < 10; i++) {
-            q.add(i);
+            testQ.add(i);
         }
         for (int i = 0; i < 10; i++) {
-            q.remove();
+            testQ.remove();
         }
-        assertEquals(q.isEmpty(), true);
+        assertEquals(testQ.isEmpty(), true);
     }
 
-    @Test(expected=AssertionError.class)
+    @Test(expected = AssertionError.class)
     public void topIfEmptyThrowsException() {
-        Queue<Integer> q = new Queue<Integer>();
-        q.top();
+        Queue<Integer> testQ = new Queue<Integer>();
+        testQ.top();
     }
 
-    @Test(expected=AssertionError.class)
+    @Test(expected = AssertionError.class)
     public void removeIfEmptyThrowsException() {
-        Queue<Integer> q = new Queue<Integer>();
-        q.remove();
+        Queue<Integer> testQ = new Queue<Integer>();
+        testQ.remove();
     }
 
-    @Test(expected=AssertionError.class)
+    @Test(expected = AssertionError.class)
     public void add10ElementsToQueueRemove11ThrowsException() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         for (int i = 0; i < 10; i++) {
-            q.add(i);
+            testQ.add(i);
         }
         for (int i = 0; i < 11; i++) {
-            q.remove();
+            testQ.remove();
         }
     }
 
     @Test
     public void addAndRemove10ElementsToQueueAddAndSizeIsOne() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         for (int i = 0; i < 10; i++) {
-            q.add(i);
+            testQ.add(i);
         }
         for (int i = 0; i < 10; i++) {
-            q.remove();
+            testQ.remove();
         }
-        q.add(150);
-        assertEquals(q.size(), 1);
+        testQ.add(150);
+        assertEquals(testQ.size(), 1);
     }
 
     @Test
     public void addAndRemove10ElementsToQueueAddAndIsTop() {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> testQ = new Queue<Integer>();
         for (int i = 0; i < 10; i++) {
-            q.add(i);
+            testQ.add(i);
         }
         for (int i = 0; i < 10; i++) {
-            q.remove();
+            testQ.remove();
         }
-        q.add(150);
-        assertEquals(q.top(), new Integer(150));
+        testQ.add(150);
+        assertEquals(testQ.top(), new Integer(150));
     }
 }
