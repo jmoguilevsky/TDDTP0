@@ -77,6 +77,16 @@ public class MainTests {
     }
 
     @Test
+    public void add10ElementsToQueueRemoveTopIsSecond() {
+        Queue<Integer> testQ = new Queue<Integer>();
+        for (int i = 0; i < 10; i++) {
+            testQ.add(i);
+        }
+        testQ.remove();
+        assertEquals(testQ.top(), new Integer(1));
+    }
+
+    @Test
     public void add10ElementsToQueueRemove10IsEmpty() {
         Queue<Integer> testQ = new Queue<Integer>();
         for (int i = 0; i < 10; i++) {

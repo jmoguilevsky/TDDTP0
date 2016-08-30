@@ -24,34 +24,31 @@ public class Queue<T> {
     }
 
     public void add(T data) {
-        Node<T> newNode = new Node(data);
+        Node<T> newNode = new Node<T>(data);
         if (isEmpty()) {
             firstNode = newNode;
-            lastNode = firstNode;
         } else {
             lastNode.setNext(newNode);
         }
+        lastNode = newNode;
         elementsCount++;
     }
 
     public T top() throws AssertionError {
-        try {
-            return lastNode.getData();
-        } catch (Exception ex) {
-            throw new AssertionError("The list is empty");
-        }
+        throwExceptionIfEmpty();
+        return firstNode.getData();
     }
 
     public void remove() throws AssertionError {
+        throwExceptionIfEmpty();
+        firstNode = firstNode.getNext();
+        elementsCount--;
+    }
+
+    private void throwExceptionIfEmpty() {
         if (isEmpty()) {
             throw new AssertionError("The list is empty");
         }
-        Node<T> currentNode = firstNode;
-        while (currentNode.getNext() != lastNode && currentNode != lastNode) {
-            currentNode = currentNode.getNext();
-        }
-        currentNode.setNext(null);
-        elementsCount--;
     }
 }
 
