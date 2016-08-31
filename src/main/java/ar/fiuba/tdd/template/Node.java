@@ -3,12 +3,24 @@ package ar.fiuba.tdd.template;
 /**
  * Created by joni on 8/30/16.
  */
-public interface Node<T> {
-    public Node<T> getNext();
+public abstract class Node<T> {
+    protected Node<T> next = new NullNode<T>();
 
-    public T getData();
+    public Node<T> getNext() {
+        return next;
+    }
 
-    public int getSize();
+    public void setNext(Node<T> node) {
+        next = node;
+    }
 
-    public void add(Node<T> node, Node<T> previousLastNode);
+    protected T data;
+
+    public T getData() {
+        return data;
+    }
+
+    public abstract int getSize();
+
+    public abstract void add(Node<T> node, Node<T> previousLastNode);
 }

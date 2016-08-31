@@ -10,16 +10,6 @@ import static org.junit.Assert.assertEquals;
 public class MainTests {
 
     @Test
-    public void dummy() {
-        assertEquals(0, 0);
-    }
-
-    @Test
-    public void anotherDummy() {
-        assertEquals(1, 1);
-    }
-
-    @Test
     public void createQueueIsEmpty() {
         Queue<Integer> testQ = new Queue<Integer>();
         assertEquals(testQ.isEmpty(), true);

@@ -6,10 +6,10 @@ package ar.fiuba.tdd.template;
 
 public class Queue<T> {
 
-    private Node<T> firstNode;
+    private FirstNode<T> firstNode;
 
     public Queue() {
-        firstNode = new NullNode<T>();
+        firstNode = new FirstNode<T>();
     }
 
     public int size() {
@@ -21,7 +21,7 @@ public class Queue<T> {
     }
 
     public void add(T data) {
-        firstNode.add(new FullNode<T>(data), this.firstNode);
+        firstNode.add(new FullNode<T>(data), firstNode);
     }
 
     public T top() throws AssertionError {
@@ -29,7 +29,7 @@ public class Queue<T> {
     }
 
     public void remove() throws AssertionError {
-        firstNode = firstNode.getNext();
+        firstNode.remove();
     }
 }
 

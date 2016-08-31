@@ -3,7 +3,7 @@ package ar.fiuba.tdd.template;
 /**
  * Created by joni on 8/30/16.
  */
-public class NullNode<T> implements Node<T> {
+public class NullNode<T> extends Node<T> {
 
     public Node<T> getNext() {
         throw new AssertionError();
@@ -18,7 +18,7 @@ public class NullNode<T> implements Node<T> {
     }
 
     public void add(Node<T> node, Node<T> previousLastNode) {
-        previousLastNode = node;
+        previousLastNode.setNext(node);
     }
 
 }
