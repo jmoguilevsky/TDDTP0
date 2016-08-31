@@ -3,14 +3,10 @@ package ar.fiuba.tdd.template;
 /**
  * Created by joni on 8/30/16.
  */
-public class NullListNode<T> implements ListNode<T> {
+public class NullNode<T> implements Node<T> {
 
-    public ListNode<T> getNext() {
+    public Node<T> getNext() {
         throw new AssertionError();
-    }
-
-    public void setNext(ListNode<T> listNode) {
-
     }
 
     public T getData() {
@@ -21,8 +17,8 @@ public class NullListNode<T> implements ListNode<T> {
         return 0;
     }
 
-    public void add(ListNode<T> listNode) {
-
+    public void add(Node<T> node, Node<T> previousLastNode) {
+        previousLastNode = node;
     }
 
 }

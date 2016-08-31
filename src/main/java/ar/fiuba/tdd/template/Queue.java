@@ -6,14 +6,14 @@ package ar.fiuba.tdd.template;
 
 public class Queue<T> {
 
-    private ListNode<T> firstListNode;
+    private Node<T> firstNode;
 
     public Queue() {
-        firstListNode = new NullListNode<T>();
+        firstNode = new NullNode<T>();
     }
 
     public int size() {
-        return firstListNode.getSize();
+        return firstNode.getSize();
     }
 
     public boolean isEmpty() {
@@ -21,15 +21,15 @@ public class Queue<T> {
     }
 
     public void add(T data) {
-        firstListNode.setNext(new FullListNode<T>(data));
+        firstNode.add(new FullNode<T>(data), this.firstNode);
     }
 
     public T top() throws AssertionError {
-        return firstListNode.getData();
+        return firstNode.getData();
     }
 
     public void remove() throws AssertionError {
-        firstListNode = firstListNode.getNext();
+        firstNode = firstNode.getNext();
     }
 }
 
