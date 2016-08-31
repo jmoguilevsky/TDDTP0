@@ -4,7 +4,9 @@ package ar.fiuba.tdd.template;
  * Created by joni on 8/30/16.
  */
 public abstract class Node<T> {
-    protected Node<T> next = new NullNode<T>();
+    protected T data;
+
+    protected Node<T> next;
 
     public Node<T> getNext() {
         return next;
@@ -14,11 +16,7 @@ public abstract class Node<T> {
         next = node;
     }
 
-    protected T data;
-
-    public T getData() {
-        return data;
-    }
+    public abstract T getData();
 
     public abstract int getSize();
 

@@ -6,10 +6,9 @@ package ar.fiuba.tdd.template;
 
 public class Queue<T> {
 
-    private FirstNode<T> firstNode;
+    private FirstNode<T> firstNode = new FirstNode<T>();
 
     public Queue() {
-        firstNode = new FirstNode<T>();
     }
 
     public int size() {
