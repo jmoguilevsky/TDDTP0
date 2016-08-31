@@ -6,17 +6,14 @@ package ar.fiuba.tdd.template;
 
 public class Queue<T> {
 
-    private Node<T> firstNode;
-    private Node<T> lastNode;
-
-    private int elementsCount;
+    private ListNode<T> firstListNode;
 
     public Queue() {
-
+        firstListNode = new NullListNode<T>();
     }
 
     public int size() {
-        return elementsCount;
+        return firstListNode.getSize();
     }
 
     public boolean isEmpty() {
@@ -24,31 +21,15 @@ public class Queue<T> {
     }
 
     public void add(T data) {
-        Node<T> newNode = new Node<T>(data);
-        if (isEmpty()) {
-            firstNode = newNode;
-        } else {
-            lastNode.setNext(newNode);
-        }
-        lastNode = newNode;
-        elementsCount++;
+        firstListNode.setNext(new FullListNode<T>(data));
     }
 
     public T top() throws AssertionError {
-        throwExceptionIfEmpty();
-        return firstNode.getData();
+        return firstListNode.getData();
     }
 
     public void remove() throws AssertionError {
-        throwExceptionIfEmpty();
-        firstNode = firstNode.getNext();
-        elementsCount--;
-    }
-
-    private void throwExceptionIfEmpty() {
-        if (isEmpty()) {
-            throw new AssertionError("The list is empty");
-        }
+        firstListNode = firstListNode.getNext();
     }
 }
 
