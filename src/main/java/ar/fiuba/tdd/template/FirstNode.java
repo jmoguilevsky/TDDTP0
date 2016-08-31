@@ -5,15 +5,13 @@ package ar.fiuba.tdd.template;
  */
 class FirstNode<T> extends Node<T> {
 
-    public FirstNode() {
+    FirstNode() {
         next = new NullNode<T>();
     }
 
     public void add(Node<T> node, Node<T> previousLastNode) {
         next.add(node, this);
     }
-
-    private T data;
 
     public T getData() {
         return next.getData();
